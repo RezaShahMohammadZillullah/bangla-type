@@ -12,6 +12,7 @@ import android.os.Looper
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
+import android.text.InputType
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -25,6 +26,7 @@ class BanglaVoiceIMEService : InputMethodService(), RecognitionListener {
     private var speechRecognizer: SpeechRecognizer? = null
     private var isListening = false
     private var continuousMode = false
+    private var isMultiLineEditor = false
     private var currentLocale = "bn-BD"
 
     private lateinit var tvStatus: TextView
@@ -81,9 +83,13 @@ class BanglaVoiceIMEService : InputMethodService(), RecognitionListener {
 
         btnEnter.setOnClickListener {
             val ic = currentInputConnection ?: return@setOnClickListener
-            val handled = ic.performEditorAction(EditorInfo.IME_ACTION_SEND)
-            if (!handled) {
-                sendDownUpKeyEvents(KeyEvent.KEYCODE_ENTER)
+            if (isMultiLineEditor) {
+                ic.commitText("\n", 1)
+            } else {
+                val handled = ic.performEditorAction(EditorInfo.IME_ACTION_SEND)
+                if (!handled) {
+                    sendDownUpKeyEvents(KeyEvent.KEYCODE_ENTER)
+                }
             }
         }
 
@@ -93,10 +99,22 @@ class BanglaVoiceIMEService : InputMethodService(), RecognitionListener {
     override fun onStartInputView(info: EditorInfo?, restarting: Boolean) {
         super.onStartInputView(info, restarting)
         val pkg = info?.packageName.orEmpty()
+        val imeOpts = info?.imeOptions ?: 0
+        val inType = info?.inputType ?: 0
+        isMultiLineEditor = (imeOpts and EditorInfo.IME_FLAG_NO_ENTER_ACTION) != 0 ||
+            (inType and InputType.TYPE_TEXT_FLAG_MULTI_LINE) != 0
+
+        if (::btnEnter.isInitialized) {
+            btnEnter.text = if (isMultiLineEditor) "এন্টার" else "পাঠান"
+        }
+
         val appLabel = when {
             pkg.contains("whatsapp") -> "হোয়াটসঅ্যাপে সরাসরি টাইপ করুন"
             pkg.contains("facebook") -> "ফেসবুকে সরাসরি টাইপ করুন"
             pkg.contains("messaging") || pkg.contains("mms") -> "মেসেজে সরাসরি টাইপ করুন"
+            pkg.contains("notes") -> "Samsung Notes-এ সরাসরি টাইপ করুন"
+            pkg.contains("docs") -> "Google Docs-এ সরাসরি টাইপ করুন"
+            pkg.contains("word") || pkg.contains("office") -> "Word-এ সরাসরি টাইপ করুন"
             else -> "বাংলা টাইপ · মাইকে চাপ দিয়ে বলুন"
         }
         if (::tvStatus.isInitialized && !isListening) {
@@ -225,7 +243,7 @@ class BanglaVoiceIMEService : InputMethodService(), RecognitionListener {
             else -> "ত্রুটি কোড: $error"
         }
 
-        if (continuousMode && error == SpeechRecognizer.ERROR_NO_SPEECH) {
+        if (continuousMode && (error == SpeechRecognizer.ERROR_NO_SPEECH || error == SpeechRecognizer.ERROR_SPEECH_TIMEOUT)) {
             mainHandler.postDelayed({ startListening() }, 400)
         }
     }

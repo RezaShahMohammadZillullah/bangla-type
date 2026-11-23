@@ -96,7 +96,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
-            android:text="?"
+            android:text="&#63;"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
             android:backgroundTint="#1B2A52"

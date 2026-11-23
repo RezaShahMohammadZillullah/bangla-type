@@ -15,7 +15,7 @@ Unlike a web page (which requires copying or sharing text into WhatsApp/Facebook
 ## Build & Mobile Installation Steps
 
 ### Step 1: Compile APK via GitHub Actions
-1. Upload this extracted `BanglaTypeVartexIME` folder to a GitHub repository.
+1. Extract this ZIP and upload its contents (making sure `.github/workflows/build-apk.yml`, `gradle.properties`, `settings.gradle.kts`, `build.gradle.kts`, and `app/` are directly at your GitHub repository root).
 2. GitHub Actions automatically runs `.github/workflows/build-apk.yml` (~2 minutes).
 3. Download `bangla-type-apk` (`app-debug.apk`) from **Actions > Artifacts** directly onto your Android phone.
 
