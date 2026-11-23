@@ -172,7 +172,7 @@ class BanglaVoiceIMEService : InputMethodService(), RecognitionListener {
             .replace(Regex("""\s*কমা\s*"""), ", ")
             .replace(Regex("""\s*প্রশ্নবোধক\s*"""), "? ")
             .replace(Regex("""\s*নতুন লাইন\s*"""), "\n")
-            .replace(Regex("""\s+([।,?])"""), "$1")
+            .replace(Regex("""\s+([।,?])""")) { it.groupValues[1] }
             .trim()
     }
 
