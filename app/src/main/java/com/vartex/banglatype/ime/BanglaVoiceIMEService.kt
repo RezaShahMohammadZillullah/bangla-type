@@ -20,6 +20,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 
 class BanglaVoiceIMEService : InputMethodService(), RecognitionListener {
 
@@ -38,13 +39,13 @@ class BanglaVoiceIMEService : InputMethodService(), RecognitionListener {
     private val mainHandler = Handler(Looper.getMainLooper())
 
     override fun onCreateInputView(): View {
-        val view = layoutInflater.inflate(R.layout.keyboard_voice_ime, null)
+        val view = requireNotNull(layoutInflater.inflate(R.layout.keyboard_voice_ime, null))
 
-        tvStatus = view.findViewById(R.id.tvStatus)
-        btnMic = view.findViewById(R.id.btnMic)
-        btnDialect = view.findViewById(R.id.btnDialect)
-        btnContinuous = view.findViewById(R.id.btnContinuous)
-        btnEnter = view.findViewById(R.id.btnEnter)
+        tvStatus = ViewCompat.requireViewById(view, R.id.tvStatus)
+        btnMic = ViewCompat.requireViewById(view, R.id.btnMic)
+        btnDialect = ViewCompat.requireViewById(view, R.id.btnDialect)
+        btnContinuous = ViewCompat.requireViewById(view, R.id.btnContinuous)
+        btnEnter = ViewCompat.requireViewById(view, R.id.btnEnter)
 
         btnMic.setOnClickListener {
             if (isListening) stopListening() else startListening()
@@ -61,17 +62,17 @@ class BanglaVoiceIMEService : InputMethodService(), RecognitionListener {
             btnContinuous.text = if (continuousMode) "টানা মোড: চালু" else "টানা মোড: বন্ধ"
         }
 
-        view.findViewById<Button>(R.id.btnSwitchIme).setOnClickListener {
-            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.showInputMethodPicker()
+        ViewCompat.requireViewById<Button>(view, R.id.btnSwitchIme).setOnClickListener {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+            imm?.showInputMethodPicker()
         }
 
-        view.findViewById<Button>(R.id.btnDari).setOnClickListener { commitText("। ") }
-        view.findViewById<Button>(R.id.btnComma).setOnClickListener { commitText(", ") }
-        view.findViewById<Button>(R.id.btnQuestion).setOnClickListener { commitText("? ") }
-        view.findViewById<Button>(R.id.btnSpace).setOnClickListener { commitText(" ") }
+        ViewCompat.requireViewById<Button>(view, R.id.btnDari).setOnClickListener { commitText("। ") }
+        ViewCompat.requireViewById<Button>(view, R.id.btnComma).setOnClickListener { commitText(", ") }
+        ViewCompat.requireViewById<Button>(view, R.id.btnQuestion).setOnClickListener { commitText("? ") }
+        ViewCompat.requireViewById<Button>(view, R.id.btnSpace).setOnClickListener { commitText(" ") }
 
-        view.findViewById<Button>(R.id.btnBackspace).setOnClickListener {
+        ViewCompat.requireViewById<Button>(view, R.id.btnBackspace).setOnClickListener {
             val ic = currentInputConnection ?: return@setOnClickListener
             val selected = ic.getSelectedText(0)
             if (selected.isNullOrEmpty()) {
@@ -97,7 +98,9 @@ class BanglaVoiceIMEService : InputMethodService(), RecognitionListener {
     }
 
     override fun onStartInputView(info: EditorInfo?, restarting: Boolean) {
-        super.onStartInputView(info, restarting)
+        if (info != null) {
+            super.onStartInputView(info, restarting)
+        }
         val pkg = info?.packageName.orEmpty()
         val imeOpts = info?.imeOptions ?: 0
         val inType = info?.inputType ?: 0
