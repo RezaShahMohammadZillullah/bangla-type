@@ -236,14 +236,14 @@ class BanglaVoiceIMEService : InputMethodService(), RecognitionListener {
         currentInputConnection?.finishComposingText()
         isListening = false
         updateMicUi(listening = false)
-        tvStatus.text = when (error) {
-            SpeechRecognizer.ERROR_NO_SPEECH -> "কোনো কথা শোনা যায়নি, আবার চেষ্টা করুন"
+    tvStatus.text = when (error) {
+            SpeechRecognizer.ERROR_NO_MATCH, SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "কোনো কথা শোনা যায়নি, আবার চেষ্টা করুন"
             SpeechRecognizer.ERROR_AUDIO -> "অডিও ইনপুটে সমস্যা হয়েছে"
             SpeechRecognizer.ERROR_NETWORK -> "ইন্টারনেট বা অফলাইন বাংলা প্যাক চেক করুন"
             else -> "ত্রুটি কোড: $error"
         }
 
-        if (continuousMode && (error == SpeechRecognizer.ERROR_NO_SPEECH || error == SpeechRecognizer.ERROR_SPEECH_TIMEOUT)) {
+        if (continuousMode && (error == SpeechRecognizer.ERROR_NO_MATCH || error == SpeechRecognizer.ERROR_SPEECH_TIMEOUT)) {
             mainHandler.postDelayed({ startListening() }, 400)
         }
     }
