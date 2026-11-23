@@ -109,11 +109,8 @@ class BanglaVoiceIMEService : InputMethodService(), RecognitionListener {
         }
 
         val appLabel = when {
-            pkg.contains("whatsapp") -> "হোয়াটসঅ্যাপে সরাসরি টাইপ করুন"
-            pkg.contains("facebook") -> "ফেসবুকে সরাসরি টাইপ করুন"
-            pkg.contains("messaging") || pkg.contains("mms") -> "মেসেজে সরাসরি টাইপ করুন"
-            pkg.contains("notes") -> "Samsung Notes-এ সরাসরি টাইপ করুন"
             pkg.contains("docs") -> "Google Docs-এ সরাসরি টাইপ করুন"
+            pkg.contains("notes") -> "Samsung Notes-এ সরাসরি টাইপ করুন"
             pkg.contains("word") || pkg.contains("office") -> "Word-এ সরাসরি টাইপ করুন"
             else -> "বাংলা টাইপ · মাইকে চাপ দিয়ে বলুন"
         }

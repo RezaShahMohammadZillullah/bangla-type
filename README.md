@@ -1,10 +1,10 @@
 # বাংলা টাইপ (Bangla Type) — Vartex Android Voice IME
 
-**বাংলা টাইপ (Bangla Type)** is a lightweight, native Android Input Method Editor (IME) written in Kotlin under the **Vartex** namespace (`com.vartex.banglatype.ime`). It lets you speak in Bangla and type **directly inside Messages (SMS), WhatsApp, Facebook**, and every other Android app **without any copy-paste**.
+**বাংলা টাইপ (Bangla Type)** is a lightweight, native Android Input Method Editor (IME) written in Kotlin under the **Vartex** namespace (`com.vartex.banglatype.ime`). It lets you speak in Bangla and type **directly inside Google Docs, Samsung Notes, Microsoft Word**, and every other Android app **without any copy-paste**.
 
 ## Zero Copy-Paste: How It Works
 
-Unlike a web page (which requires copying or sharing text into WhatsApp/Facebook), an Android `InputMethodService` is a system-level keyboard. Once enabled in Android Settings, **বাংলা টাইপ** pops up whenever you tap any text field in WhatsApp, Facebook, or Messages and injects Bangla text directly via `InputConnection.commitText()`.
+Unlike a web page (which requires copying text into an editor), an Android `InputMethodService` is a system-level keyboard. Once enabled in Android Settings, **বাংলা টাইপ** pops up whenever you tap any document or text field in Google Docs, Notes, Word, or any Android app and injects Bangla text directly via `InputConnection.commitText()`.
 
 ## Architecture Highlights
 
@@ -25,4 +25,4 @@ Unlike a web page (which requires copying or sharing text into WhatsApp/Facebook
    - **Grant Microphone Permission** (`RECORD_AUDIO`)
    - **Enable বাংলা টাইপ** in Android *On-screen Keyboard* settings
    - **Select বাংলা টাইপ** as your active keyboard
-3. Open **WhatsApp**, **Messages**, or **Facebook**, tap any chat/comment box, switch to **বাংলা টাইপ**, tap the mic, and speak Bangla—text appears directly inside the app with zero copy-paste.
+3. Open **Google Docs**, **Samsung Notes**, **Word**, or any text editor, tap inside the document, switch to **বাংলা টাইপ**, tap the mic, and speak Bangla—text appears directly inside the app with zero copy-paste.

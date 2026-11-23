@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="কপি-পেস্ট ছাড়াই মেসেজ, হোয়াটসঅ্যাপ ও ফেসবুকে সরাসরি বাংলা ভয়েস টাইপিং"
+        android:text="কপি-পেস্ট ছাড়াই Google Docs, Notes ও যেকোনো অ্যাপে সরাসরি বাংলা ভয়েস টাইপিং"
         android:textSize="14sp"
         android:textColor="#CBD5E1"
         android:layout_marginBottom="24dp" />

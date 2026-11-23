@@ -4,7 +4,7 @@ This checklist prepares **বাংলা টাইপ** (`com.vartex.banglatype
 
 ## 1. Platform Clarification (Vartex Web Portal vs. Android Distribution)
 - **Vartex Web / Cloud Run** hosts web apps and live demos.
-- **Android System Keyboards (IME)** that type directly inside WhatsApp, Messages, and Facebook must be packaged as an Android `.apk` (direct install) or `.aab` (Google Play Console).
+- **Android System Keyboards (IME)** that type directly inside Google Docs, Samsung Notes, Word, and all Android apps must be packaged as an Android `.apk` (direct install) or `.aab` (Google Play Console).
 - This project includes the **Vartex midnight navy & gold adaptive launcher icon** (`ic_launcher`), **ProGuard rules**, and **Release bundle workflow** so both distribution paths are ready.
 
 ## 2. Generate a Signing Keystore (One-Time, For Play Store / Signed APK)
@@ -18,7 +18,7 @@ Add your signing details to GitHub Secrets or local `keystore.properties` before
 - **Declared Permissions**:
   - `RECORD_AUDIO`: Used strictly on-demand when the user taps the keyboard microphone button to convert Bangla speech into text via Android `SpeechRecognizer`.
   - `INTERNET`: Used only by the device's system SpeechRecognizer if the user has not downloaded an offline Bangla voice pack.
-- **IME Security Best Practice**: **বাংলা টাইপ** does not log keystrokes, does not store typed messages, and does not run background analytics or external servers.
+- **IME Security Best Practice**: **বাংলা টাইপ** does not log keystrokes, does not store typed text, and does not run background analytics or external servers.
 
 ## 4. High-Resolution Vartex BANGLA Store Icon
 A 1:1 **Vartex BANGLA** app icon matching your Vartex Search icon style is included in the web studio for instant download and upload to Google Play Console or your Vartex portal.
