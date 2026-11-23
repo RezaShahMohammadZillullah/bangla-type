@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">বাংলা টাইপ</string>
+    <string name="ime_name">বাংলা টাইপ (Vartex IME)</string>
+    <string name="subtype_bn_bd">বাংলা (বাংলাদেশ) ভয়েস</string>
+    <string name="subtype_bn_in">বাংলা (ভারত) ভয়েস</string>
+</resources>

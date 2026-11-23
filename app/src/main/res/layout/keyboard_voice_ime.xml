@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#0A132B"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="বাংলা টাইপ · মাইকে চাপ দিয়ে বলুন"
+            android:textColor="#F8FAFC"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnDialect"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="bn-BD"
+            android:textSize="12sp"
+            android:textColor="#C5A24D"
+            android:backgroundTint="#132043"
+            android:layout_marginEnd="6dp" />
+
+        <Button
+            android:id="@+id/btnContinuous"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="টানা মোড: বন্ধ"
+            android:textSize="12sp"
+            android:textColor="#E2E8F0"
+            android:backgroundTint="#132043" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnMic"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="কথা বলুন (বাংলা টাইপ)"
+        android:textColor="#0A132B"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#C5A24D"
+        android:layout_marginBottom="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSwitchIme"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:text="কীবোর্ড"
+            android:textSize="12sp"
+            android:textColor="#E2E8F0"
+            android:backgroundTint="#132043"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/btnDari"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:text="।"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1B2A52"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/btnComma"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:text=","
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1B2A52"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/btnQuestion"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:text="?"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1B2A52"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/btnSpace"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:text="স্পেস"
+            android:textSize="12sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1B2A52"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/btnBackspace"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:text="⌫"
+            android:textSize="16sp"
+            android:textColor="#FCA5A5"
+            android:backgroundTint="#132043"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/btnEnter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:text="পাঠান"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#0A132B"
+            android:backgroundTint="#C5A24D" />
+    </LinearLayout>
+</LinearLayout>
