@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#0A132B">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="বাংলা টাইপ"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="কপি-পেস্ট ছাড়াই মেসেজ, হোয়াটসঅ্যাপ ও ফেসবুকে সরাসরি বাংলা ভয়েস টাইপিং"
+        android:textSize="14sp"
+        android:textColor="#CBD5E1"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnGrantMic"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="১. মাইক্রোফোন পারমিশন দিন"
+        android:backgroundTint="#132043"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnEnableIme"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="২. ফোনের সেটিংসে বাংলা টাইপ চালু করুন"
+        android:backgroundTint="#C5A24D"
+        android:textStyle="bold"
+        android:textColor="#0A132B"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnSelectIme"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="৩. কীবোর্ড হিসেবে বাছাই করুন"
+        android:backgroundTint="#1B2A52"
+        android:textColor="#FFFFFF" />
+</LinearLayout>

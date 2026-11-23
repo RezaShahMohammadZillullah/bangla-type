@@ -1,0 +1,2 @@
+-keep public class com.vartex.banglatype.ime.BanglaVoiceIMEService { *; }
+-keep public class com.vartex.banglatype.ime.SetupActivity { *; }
